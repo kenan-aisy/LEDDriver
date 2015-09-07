@@ -14,15 +14,17 @@ void remote(){
         power =true;
       }
     }
-    if(results.value == 0xFF08F7){
-      colorDown(0);
-    }
-    if(results.value == 0xFF28D7){
-      colorUp(0);
-    }
+    redLvl();
+    greenLvl();
+    blueLvl();
+    
     
     Serial.println(results.value, HEX);
     irrecv.resume(); // Receive the next value
-  
+    delay(100);
   }
+  if(results.value == 0xFFB04F){
+      wave();
+      
+    }
 }
